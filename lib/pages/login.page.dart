@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping/pages/signup.page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -6,7 +7,8 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+        body: SingleChildScrollView(
+      child: Container(
         padding: EdgeInsets.only(top: 80, left: 20, right: 20, bottom: 40),
         color: Color(0xFFF5F5F5),
         child: Column(
@@ -21,8 +23,8 @@ class LoginPage extends StatelessWidget {
                       spreadRadius: 1)
                 ]),
                 child: Padding(
-                  padding: EdgeInsets.all(15),
-                  child: ListView(
+                  padding: EdgeInsets.only(left: 15, right: 15, top: 60),
+                  child: Column(
                     children: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,7 +43,12 @@ class LoginPage extends StatelessWidget {
                           ),
                           TextButton(
                             child: Text('SignUp'),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SignupPage()));
+                            },
                           ),
                         ],
                       ),
@@ -63,7 +70,7 @@ class LoginPage extends StatelessWidget {
                         height: 20,
                       ),
                       TextFormField(
-                        autofocus: true,
+                        // autofocus: true,
                         keyboardType: TextInputType.text,
                         obscureText: true,
                         decoration: InputDecoration(
@@ -86,6 +93,7 @@ class LoginPage extends StatelessWidget {
                         height: 15,
                       ),
                       Container(
+                        width: double.infinity,
                         decoration: BoxDecoration(
                             color: Theme.of(context).primaryColor,
                             borderRadius: BorderRadius.all(Radius.circular(5))),
@@ -157,6 +165,6 @@ class LoginPage extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }
