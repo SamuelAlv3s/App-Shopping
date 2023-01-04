@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping/pages/product.page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -49,7 +50,7 @@ class HomePage extends StatelessWidget {
               ),
               SizedBox(
                 height: 320,
-                child: productList(),
+                child: productList(context),
               )
             ]),
       ),
@@ -128,23 +129,23 @@ Widget categoryItem() {
   );
 }
 
-Widget productList() {
+Widget productList(BuildContext context) {
   return ListView(
     scrollDirection: Axis.horizontal,
     children: <Widget>[
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
     ],
   );
 }
 
-Widget productItem() {
+Widget productItem(BuildContext context) {
   return Container(
     width: 170,
     padding: EdgeInsets.all(10),
@@ -153,16 +154,25 @@ Widget productItem() {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Image.asset(
-          'assets/product-1.png',
-          width: 170,
-          height: 170,
-          fit: BoxFit.cover,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ProductPage(),
+                ));
+          },
+          child: Image.asset(
+            'assets/product-1.png',
+            width: 170,
+            height: 170,
+            fit: BoxFit.cover,
+          ),
         ),
         SizedBox(
           height: 10,
         ),
-        Container(
+        SizedBox(
           height: 60,
           child: Text(
             'Nice Product',
