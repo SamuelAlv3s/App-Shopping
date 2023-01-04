@@ -48,7 +48,7 @@ class HomePage extends StatelessWidget {
                 height: 10,
               ),
               SizedBox(
-                height: 160,
+                height: 320,
                 child: productList(),
               )
             ]),
@@ -150,6 +150,47 @@ Widget productItem() {
     padding: EdgeInsets.all(10),
     margin: EdgeInsets.all(5),
     color: Colors.black12,
-    child: Text('Produto'),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Image.asset(
+          'assets/product-1.png',
+          width: 170,
+          height: 170,
+          fit: BoxFit.cover,
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          height: 60,
+          child: Text(
+            'Nice Product',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w300),
+          ),
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          'Marca',
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w300,
+          ),
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          '\$ 200.00',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF00C569),
+          ),
+        )
+      ],
+    ),
   );
 }
