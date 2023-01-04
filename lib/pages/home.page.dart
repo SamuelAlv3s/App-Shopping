@@ -24,10 +24,33 @@ class HomePage extends StatelessWidget {
               SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 height: 90,
                 child: categoryList(),
               ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Best Selling',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text('See All'),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                height: 160,
+                child: productList(),
+              )
             ]),
       ),
     );
@@ -65,22 +88,20 @@ Widget search() {
 }
 
 Widget categoryList() {
-  return Container(
-    child: ListView(
-      scrollDirection: Axis.horizontal,
-      children: <Widget>[
-        categoryItem(),
-        categoryItem(),
-        categoryItem(),
-        categoryItem(),
-        categoryItem(),
-        categoryItem(),
-        categoryItem(),
-        categoryItem(),
-        categoryItem(),
-        categoryItem(),
-      ],
-    ),
+  return ListView(
+    scrollDirection: Axis.horizontal,
+    children: <Widget>[
+      categoryItem(),
+      categoryItem(),
+      categoryItem(),
+      categoryItem(),
+      categoryItem(),
+      categoryItem(),
+      categoryItem(),
+      categoryItem(),
+      categoryItem(),
+      categoryItem(),
+    ],
   );
 }
 
@@ -104,5 +125,31 @@ Widget categoryItem() {
       ),
     ),
     child: Image.asset('assets/Icon_Devices.png'),
+  );
+}
+
+Widget productList() {
+  return ListView(
+    scrollDirection: Axis.horizontal,
+    children: <Widget>[
+      productItem(),
+      productItem(),
+      productItem(),
+      productItem(),
+      productItem(),
+      productItem(),
+      productItem(),
+      productItem(),
+    ],
+  );
+}
+
+Widget productItem() {
+  return Container(
+    width: 170,
+    padding: EdgeInsets.all(10),
+    margin: EdgeInsets.all(5),
+    color: Colors.black12,
+    child: Text('Produto'),
   );
 }
