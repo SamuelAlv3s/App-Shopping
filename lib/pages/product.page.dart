@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({super.key});
+  final String image;
+  final String title;
+  final String brand;
+  final double price;
+  const ProductPage(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.brand,
+      required this.price});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +27,7 @@ class ProductPage extends StatelessWidget {
                 flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
                   background: Image.asset(
-                    'assets/product-1.png',
+                    image,
                     width: double.infinity,
                     fit: BoxFit.fitWidth,
                   ),
@@ -31,13 +40,13 @@ class ProductPage extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(top: 10, left: 10, right: 10),
                 child: Text(
-                  'Cadeira Gamer',
+                  title,
                   style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(10),
-                child: Text('by Nike'),
+                child: Text(brand),
               ),
               Padding(
                 padding: EdgeInsets.all(10),
