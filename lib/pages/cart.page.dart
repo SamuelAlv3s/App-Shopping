@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -13,7 +11,7 @@ class CartPage extends StatelessWidget {
       children: <Widget>[
         Expanded(
           child: Container(
-            child: productList(),
+            child: productList(context),
           ),
         ),
         Container(
@@ -29,7 +27,7 @@ class CartPage extends StatelessWidget {
                     children: <Widget>[
                       Text(
                         'TOTAL',
-                        style: TextStyle(color: Colors.green),
+                        style: TextStyle(color: Theme.of(context).primaryColor),
                       ),
                       SizedBox(
                         height: 5,
@@ -37,7 +35,7 @@ class CartPage extends StatelessWidget {
                       Text(
                         '\$ 4250',
                         style: TextStyle(
-                            color: Colors.green,
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize: 20),
                       ),
@@ -48,7 +46,7 @@ class CartPage extends StatelessWidget {
                   width: 150,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.all(Radius.circular(5)),
                   ),
                   margin: EdgeInsets.only(right: 20),
@@ -67,21 +65,21 @@ class CartPage extends StatelessWidget {
   }
 }
 
-Widget productList() {
+Widget productList(context) {
   return ListView(
     children: <Widget>[
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
     ],
   );
 }
 
-Widget productItem() {
+Widget productItem(context) {
   return Container(
     height: 120,
     margin: EdgeInsets.all(5),
@@ -103,7 +101,7 @@ Widget productItem() {
             Text('Título do Produto'),
             Text(
               '\$ 80.00',
-              style: TextStyle(color: Colors.green),
+              style: TextStyle(color: Theme.of(context).primaryColor),
             ),
             SizedBox(
               height: 10,
@@ -119,7 +117,10 @@ Widget productItem() {
                   width: 40,
                   alignment: Alignment.center,
                   child: TextButton(
-                    child: Text('+'),
+                    child: Text(
+                      '+',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     onPressed: () {},
                   ),
                 ),
@@ -127,7 +128,10 @@ Widget productItem() {
                   width: 40,
                   alignment: Alignment.center,
                   child: TextButton(
-                    child: Text('1'),
+                    child: Text(
+                      '1',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     onPressed: () {},
                   ),
                 ),
@@ -135,7 +139,10 @@ Widget productItem() {
                   width: 40,
                   alignment: Alignment.center,
                   child: TextButton(
-                    child: Text('-'),
+                    child: Text(
+                      '-',
+                      style: TextStyle(color: Colors.black),
+                    ),
                     onPressed: () {},
                   ),
                 ),

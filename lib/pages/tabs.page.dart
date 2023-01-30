@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:shopping/pages/cart.page.dart';
 import 'package:shopping/pages/home.page.dart';
 import 'package:shopping/pages/login.page.dart';
@@ -18,11 +16,11 @@ class TabsPage extends StatelessWidget {
           Tab(icon: Icon(Icons.shopping_cart)),
           Tab(icon: Icon(Icons.perm_identity)),
         ],
-        labelColor: Colors.green,
+        labelColor: Theme.of(context).primaryColor,
         unselectedLabelColor: Colors.black38,
         indicatorSize: TabBarIndicatorSize.label,
         indicatorPadding: EdgeInsets.all(5),
-        indicatorColor: Colors.green,
+        indicatorColor: Theme.of(context).primaryColor,
       ),
     );
   }
